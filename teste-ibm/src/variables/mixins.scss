@@ -1,0 +1,6 @@
+@import '../variables/colors.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@mixin text-font-inter {
+  font-family: "Inter Regular", Helvetica, Arial, sans-serif;
+}

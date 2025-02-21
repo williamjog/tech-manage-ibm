@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { UserFormComponent } from './components/user-form/user-form.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'teste-ibm';
+
+  constructor(
+    private dialog: MatDialog
+  ) {}
+
+  openUserModal(): void {
+    this.dialog.open(UserFormComponent, {
+      width: '80%',
+      height: '85%',
+      autoFocus: false,
+    })
+  }
 }

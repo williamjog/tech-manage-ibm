@@ -1,0 +1,23 @@
+@import '../../../variables/colors.scss';
+@import '../../../variables/mixins.scss';
+
+.card {
+  .actions {
+    display: flex;
+    padding-left: 7px;
+    gap: 1rem;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    width: 90%;
+  }
+}
+
+@media (min-width: 401px) {
+  .card {
+    width: 40%;
+  }
+}

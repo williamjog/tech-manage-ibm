@@ -1,0 +1,42 @@
+@import '../variables/colors.scss';
+@import '../variables/mixins.scss';
+
+.main-content {
+  @include text-font-inter;
+  .title {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    .logo {
+      max-width: 90%;
+      height: auto;
+      display: block;
+    }
+  }
+  .cards {
+    overflow-y: auto;
+    max-height: 450px;
+    app-user-list {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .addUser {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 401px) {
+  .title {
+    font-size: 30px;
+  }
+}

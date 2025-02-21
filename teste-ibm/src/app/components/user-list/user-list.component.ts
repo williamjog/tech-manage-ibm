@@ -1,6 +1,7 @@
+import { User } from './../../../interfaces/user.interface';
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { UserFormComponent } from '../user-form/user-form.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
@@ -9,16 +10,28 @@ import { UserFormComponent } from '../user-form/user-form.component';
 })
 export class UserListComponent implements OnInit {
 
+  users$: Observable<User[]>;
+
   constructor(
-    private dialog: MatDialog
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
-    this.dialog.open(UserFormComponent, {
-      width: '500px',
-      height: '500px',
-      autoFocus: false
-    });
+    this.users$ = this.userService.getUsers();
+  }
+
+  getUserAge(userBirthDate: Date | undefined): number | void {
+    if (userBirthDate instanceof Date) {
+      const today = new Date();
+      let age = today.getFullYear() - userBirthDate.getFullYear();
+      const mesNascimento = userBirthDate.getMonth();
+      const mesAtual = today.getMonth();
+      if (mesAtual < mesNascimento || (mesAtual === mesNascimento && today.getDate() < userBirthDate.getDate())) {
+        age--;
+      }
+      return age;
+    }
+    console.error('A data de nascimento está inválida');
   }
 
 }
