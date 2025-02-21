@@ -1,4 +1,24 @@
+@import '../../../variables/colors.scss';
 
 .form {
-
+  .header {
+    display: flex;
+    justify-content: space-between;
+    .close {
+      margin-top: 5px;
+      cursor: pointer;
+    }
+  }
+  ::ng-deep .field {
+    display: flex;
+    width: 100%;
+    padding-bottom: 0.7rem;
+    .mat-form-field-wrapper {
+      width: 100%;
+    }
+  }
+  .footer {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

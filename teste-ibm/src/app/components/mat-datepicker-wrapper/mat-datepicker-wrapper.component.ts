@@ -31,7 +31,7 @@ export class MatDatepickerWrapperComponent implements OnInit, ControlValueAccess
   }
 
   writeValue(value: any): void {
-    this.value = value;
+    this.value = value || null;
   }
 
   registerOnChange(fn: (value: any) => void): void {

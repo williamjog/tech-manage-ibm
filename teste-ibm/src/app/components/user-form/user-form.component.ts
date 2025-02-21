@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
+import { phoneValidator } from 'src/app/validators/phoneValidator';
 
 @Component({
   selector: 'app-user-form',
@@ -13,15 +15,16 @@ export class UserFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private matDialogRef: MatDialogRef<UserFormComponent>
   ) { }
 
   ngOnInit(): void {
     this.userForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required]],
-      birthDate: [null, [Validators.required]],
+      phone: ['', [Validators.required, phoneValidator()]],
+      birthDate: ['', [Validators.required]],
       role: ['', Validators.required]
     });
   }
@@ -31,6 +34,11 @@ export class UserFormComponent implements OnInit {
       this.userService.addUser(this.userForm.value);
       this.userForm.reset();
     }
+  }
+
+  closeModal(): void {
+    this.userForm.reset();
+    this.matDialogRef.close();
   }
 
 }

@@ -14,9 +14,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerWrapperComponent } from './components/mat-datepicker-wrapper/mat-datepicker-wrapper.component';
+import { MatSelectModule } from '@angular/material/select';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { MatButtonModule } from '@angular/material/button';
 
 
 // Registrando o locale
@@ -39,7 +41,9 @@ registerLocaleData(localePt);
     MatFormFieldModule,
     MatDialogModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' } // Definindo a linguagem padrão

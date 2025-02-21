@@ -7,3 +7,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-form-field-appearance-fill .mat-form-field-flex {
   background-color: white;
 }
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0 !important;
+}
+
+.mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+  transform: translate(-7px, -50%) !important;
+}

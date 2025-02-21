@@ -16,7 +16,8 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     this.dialog.open(UserFormComponent, {
       width: '500px',
-      height: '500px'
+      height: '500px',
+      autoFocus: false
     });
   }
 
