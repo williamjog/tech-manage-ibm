@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { MatDialog } from '@angular/material/dialog';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -47,6 +48,23 @@ describe('AppComponent', () => {
     expect(dialogConfig.width).toBe('300px');
     expect(dialogConfig.height).toBe('85%');
     expect(dialogConfig.autoFocus).toBeFalse();
+  });
+
+  it('should render the logo image', () => {
+    const logo = fixture.debugElement.query(By.css('.logo'));
+    expect(logo).toBeTruthy();
+    expect(logo.nativeElement.src).toContain('assets/logo.png');
+  });
+
+  it('should render the "CADASTRAR USUÁRIO" button', () => {
+    const button = fixture.debugElement.query(By.css('.addUser button'));
+    expect(button).toBeTruthy();
+    expect(button.nativeElement.textContent.trim()).toBe('CADASTRAR USUÁRIO');
+  });
+
+  it('should render the <app-user-list> component', () => {
+    const userList = fixture.debugElement.query(By.css('app-user-list'));
+    expect(userList).toBeTruthy();
   });
 
 });

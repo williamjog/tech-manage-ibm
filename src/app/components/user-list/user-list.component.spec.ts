@@ -5,6 +5,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { UserService } from '../../services/user.service';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { User } from '../../../interfaces/user.interface';
+import { By } from '@angular/platform-browser';
 
 describe('UserListComponent', () => {
   let component: UserListComponent;
@@ -75,27 +76,52 @@ describe('UserListComponent', () => {
   });
 
   describe('getUserAge', () => {
-    it('should calculate the correct age when birthDate is valid', () => {
-      const birthDate = new Date('1990-01-01');
-      const today = new Date();
-      let expectedAge = today.getFullYear() - birthDate.getFullYear();
-      if (
-        today.getMonth() < birthDate.getMonth() ||
-        (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())
-      ) {
-        expectedAge--;
-      }
-      const age = component.getUserAge(birthDate);
-      expect(age).toEqual(expectedAge);
+    let consoleErrorSpy: jasmine.Spy;
+  
+    beforeEach(() => {
+      consoleErrorSpy = spyOn(console, 'error');
     });
-
-    it('should log an error and return undefined if birthDate is invalid', () => {
-      spyOn(console, 'error');
-      const age = component.getUserAge(undefined);
-      expect(console.error).toHaveBeenCalledWith('A data de nascimento está inválida!');
-      expect(age).toBeUndefined();
+  
+    it('should return the correct age when birthday has already passed this year', () => {
+      const birthDate = new Date(new Date().getFullYear() - 25, 0, 1); // 25 anos completos
+      expect(component.getUserAge(birthDate)).toBe(25);
+    });
+  
+    it('should return the correct age when birthday is today', () => {
+      const today = new Date();
+      const birthDate = new Date(today.getFullYear() - 30, today.getMonth(), today.getDate()); // 30 anos completos
+      expect(component.getUserAge(birthDate)).toBe(30);
+    });
+  
+    it('should return the correct age when birthday is yet to come this year', () => {
+      const today = new Date();
+      const birthDate = new Date(today.getFullYear() - 40, today.getMonth() + 1, today.getDate()); // Ainda não fez 40 anos
+      expect(component.getUserAge(birthDate)).toBe(39);
+    });
+  
+    it('should return the correct age when birthday is later in the same month', () => {
+      const today = new Date();
+      const birthDate = new Date(today.getFullYear() - 20, today.getMonth(), today.getDate() + 5); // 19 anos pois falta 5 dias
+      expect(component.getUserAge(birthDate)).toBe(19);
+    });
+  
+    it('should return the correct age when birthday is tomorrow', () => {
+      const today = new Date();
+      const birthDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate() + 1); // 17 anos pois ainda não fez 18
+      expect(component.getUserAge(birthDate)).toBe(17);
+    });
+  
+    it('should return undefined and log error when birthDate is undefined', () => {
+      expect(component.getUserAge(undefined)).toBeUndefined();
+      expect(consoleErrorSpy).toHaveBeenCalledWith('A data de nascimento está inválida!');
+    });
+  
+    it('should return undefined and log error when birthDate is not a Date instance', () => {
+      expect(component.getUserAge('invalid' as unknown as Date)).toBeUndefined();
+      expect(consoleErrorSpy).toHaveBeenCalledWith('A data de nascimento está inválida!');
     });
   });
+  
 
   describe('updateUser', () => {
     it('should open dialog with UserFormComponent and correct configuration', () => {
@@ -116,6 +142,15 @@ describe('UserListComponent', () => {
       component.deleteUser(user);
       expect(userServiceMock.deleteUser).toHaveBeenCalledWith(user);
     });
+  });
+
+  it('should render user cards correctly', () => {
+    const userCards = fixture.debugElement.queryAll(By.css('.card'));
+  
+    expect(userCards.length).toBe(2);
+    
+    expect(userCards[0].nativeElement.textContent).toContain('John Doe');
+    expect(userCards[1].nativeElement.textContent).toContain('Jane Doe');
   });
 
 });

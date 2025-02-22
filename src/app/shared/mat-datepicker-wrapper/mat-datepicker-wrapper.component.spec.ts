@@ -7,6 +7,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { By } from '@angular/platform-browser';
 
 describe('MatDatepickerWrapperComponent', () => {
   let component: MatDatepickerWrapperComponent;
@@ -64,6 +65,31 @@ describe('MatDatepickerWrapperComponent', () => {
     const mockEvent = { value: '2025-02-21' } as MatDatepickerInputEvent<any>;
     component.onDateChange(mockEvent);
     expect(component.value).toBe('2025-02-21');
+  });
+
+  it('should render the datepicker input field', () => {
+    const input = fixture.debugElement.query(By.css('input[matInput]'));
+    expect(input).toBeTruthy();
+  });
+
+  it('should render the datepicker toggle button', () => {
+    const toggle = fixture.debugElement.query(By.css('mat-datepicker-toggle'));
+    expect(toggle).toBeTruthy();
+  });
+
+  it('should render the mat-form-field container', () => {
+    const formField = fixture.debugElement.query(By.css('mat-form-field'));
+    expect(formField).toBeTruthy();
+  });
+
+  it('should have a label with "Data de nascimento"', () => {
+    const label = fixture.debugElement.query(By.css('mat-label'));
+    expect(label.nativeElement.textContent.trim()).toBe('Data de nascimento');
+  });
+
+  it('should contain a datepicker element in the DOM', () => {
+    const datepicker = fixture.debugElement.query(By.css('mat-datepicker'));
+    expect(datepicker).toBeTruthy();
   });
 
 });
