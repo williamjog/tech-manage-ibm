@@ -67,4 +67,9 @@ describe('AppComponent', () => {
     expect(userList).toBeTruthy();
   });
 
+  it('should render the footer with the current year', () => {
+    const footer = fixture.debugElement.query(By.css('.footer'));
+    expect(footer.nativeElement.textContent).toContain(new Date().getFullYear());
+  });
+
 });

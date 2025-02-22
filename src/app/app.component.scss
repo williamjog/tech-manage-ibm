@@ -29,14 +29,31 @@
   }
 }
 
+.footer {
+  padding: 10px;
+  font-size: 14px;
+  color: $black;
+  background-color: $off-white;
+  position: fixed;
+  bottom: 0;
+}
+
 @media (max-width: 400px) {
   .title {
     font-size: 18px;
+  }
+  .footer {
+    text-align: center;
   }
 }
 
 @media (min-width: 401px) {
   .title {
     font-size: 30px;
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 }

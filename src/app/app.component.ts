@@ -10,9 +10,15 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 export class AppComponent {
   title = 'teste-ibm';
 
+  currentYear: number;
+
   constructor(
     private dialog: MatDialog
   ) {}
+
+  ngOnInit(): void {
+    this.currentYear = new Date().getFullYear();
+  }
 
   openUserModal(): void {
     this.dialog.open(UserFormComponent, {
