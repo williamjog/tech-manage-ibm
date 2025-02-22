@@ -8,35 +8,19 @@ TechManage é uma aplicação Angular para gerenciamento de usuários, permitind
 
 * Angular Material (Componentes UI)
 
-(*) RxJS (Gerenciamento de estado com Observables)
+* RxJS (Gerenciamento de estado com Observables)
 
-(*) TypeScript (Linguagem principal)
+* TypeScript (Linguagem principal)
 
 🎯 Funcionalidades
 
-✅ Listagem de usuários
-✅ Adicionar novos usuários
-✅ Editar usuários existentes
-✅ Remover usuários
-✅ Simulação de backend com um service local
-✅ Uso de async pipe para manipulação de Observables
-✅ Interface responsiva com Angular Material
-
-📂 Estrutura do Projeto
-
-techmanage/
-│── src/
-│   ├── app/
-│   │   ├── components/
-│   │   │   ├── user-list/ (Lista de usuários)
-│   │   │   ├── user-form/ (Formulário de criação e edição)
-│   │   ├── services/
-│   │   │   ├── user.service.ts (Gerenciamento de usuários - mock local)
-│   │   ├── shared/
-│   │   │   ├── shared.module.ts (Módulo compartilhado)
-│── angular.json
-│── package.json
-│── README.md
+✅ Listagem de usuários <br>
+✅ Adicionar novos usuários <br>
+✅ Editar usuários existentes <br>
+✅ Remover usuários <br>
+✅ Simulação de backend com um service local <br>
+✅ Uso de async pipe para manipulação de Observables <br>
+✅ Interface responsiva com Angular Material <br>
 
 🚀 Como Executar o Projeto
 
@@ -46,14 +30,14 @@ techmanage/
 
 2️⃣ Inicie o servidor de desenvolvimento
 
-(`) npx ng serve (`)
+` npx ng serve `
 
 Acesse no navegador: http://localhost:4200
 
 🎨 UI e Design
 
-(*) O projeto utiliza Angular Material para uma interface moderna e responsiva.
+* O projeto utiliza Angular Material para uma interface moderna e responsiva.
 
 📜 Licença
 
-(*) Este projeto está sob a licença MIT. Você pode usá-lo e modificá-lo livremente.
+* Este projeto está sob a licença MIT. Você pode usá-lo e modificá-lo livremente.
