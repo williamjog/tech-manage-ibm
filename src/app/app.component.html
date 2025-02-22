@@ -1,17 +1,26 @@
-<main class="main-content">
-  <header class="title">
-    <img class="logo" [src]="'./../assets/logo.png'">
-  </header>
-  <nav class="addUser">
-    <button mat-raised-button color="primary" (click)="openUserModal()">
-      CADASTRAR USUÁRIO
-    </button>
-  </nav>
-  <section class="cards">
-    <app-user-list></app-user-list>
+<main class="wrapper">
+
+  <section class="content">
+    <header class="title">
+      <img class="logo" [src]="'./../assets/logo.png'">
+    </header>
+    <nav class="addUser">
+      <button mat-raised-button color="primary" (click)="openUserModal()">
+        CADASTRAR USUÁRIO
+      </button>
+    </nav>
+    <section class="cards">
+      <app-user-list></app-user-list>
+    </section>
   </section>
+  
+  <footer class="footer">
+    <p class="message">
+      &copy; 
+      {{ currentYear }} William Gomes. Todos os direitos reservados.
+    </p>
+  </footer>
+
 </main>
 
-<footer class="footer">
-  <p>&copy; {{ currentYear }} William Gomes. Todos os direitos reservados.</p>
-</footer>
+

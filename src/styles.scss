@@ -2,6 +2,16 @@
 @import './variables/colors.scss';
 @import './variables/mixins.scss';
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
 .mat-form-field-appearance-fill .mat-form-field-flex {
   background-color: white;
 }

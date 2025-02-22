@@ -84,7 +84,7 @@ describe('MatDatepickerWrapperComponent', () => {
 
   it('should have a label with "Data de nascimento"', () => {
     const label = fixture.debugElement.query(By.css('mat-label'));
-    expect(label.nativeElement.textContent.trim()).toBe('Data de nascimento');
+    expect(label.nativeElement.textContent.trim()).toBe('Data de Nascimento');
   });
 
   it('should contain a datepicker element in the DOM', () => {

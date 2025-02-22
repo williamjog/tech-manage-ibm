@@ -1,42 +1,49 @@
 @import '../variables/colors.scss';
 @import '../variables/mixins.scss';
 
-.main-content {
-  @include text-font-inter;
-  .title {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    padding-bottom: 1rem;
-    .logo {
-      max-width: 90%;
-      height: auto;
-      display: block;
-    }
-  }
-  .cards {
-    overflow-y: auto;
-    app-user-list {
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .content {
+    flex: 1;
+    padding: 20px;
+    @include text-font-inter;
+    .title {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
+      padding-bottom: 1rem;
+      .logo {
+        max-width: 90%;
+        height: auto;
+        display: block;
+      }
+    }
+    .cards {
+      overflow-y: auto;
+      app-user-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+    .addUser {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
     }
   }
-  .addUser {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
+  .footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    .message {
+      margin: 0;
+    }
   }
 }
 
-.footer {
-  padding: 10px;
-  font-size: 14px;
-  color: $black;
-  background-color: $off-white;
-  position: fixed;
-  bottom: 0;
-}
 
 @media (max-width: 400px) {
   .title {
@@ -50,10 +57,5 @@
 @media (min-width: 401px) {
   .title {
     font-size: 30px;
-  }
-  .footer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
   }
 }

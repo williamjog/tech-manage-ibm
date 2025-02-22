@@ -28,9 +28,9 @@ export class MatDatepickerWrapperComponent implements OnInit, ControlValueAccess
   ngOnInit(): void {}
 
   onDateChange(event: MatDatepickerInputEvent<any>): void {
-    this.control.setValue(event.value);
-    this.control.markAsTouched();
-    this.control.updateValueAndValidity();
+    this.control?.setValue(event.value);
+    this.control?.markAsTouched();
+    this.control?.updateValueAndValidity();
     this.value = event.value;
     this.onChange(this.value);
   }
