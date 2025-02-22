@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
+import { emailValidator } from 'src/app/utils/email.validator';
 import { phoneValidator } from 'src/app/utils/phone.validator';
 import { User } from 'src/interfaces/user.interface';
 
@@ -25,7 +26,7 @@ export class UserFormComponent implements OnInit {
     this.userForm = this.fb.group({
       id: [''],
       name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, emailValidator()]],
       phone: ['', [Validators.required, phoneValidator()]],
       birthDate: ['', [Validators.required]],
       role: ['', Validators.required]
@@ -40,6 +41,10 @@ export class UserFormComponent implements OnInit {
     } else {
       this.userForm.get('id')?.setValue(this.userService.generateId());
     }
+  }
+
+  getBirthDateControl(): FormControl {
+    return this.userForm.get('birthDate') as FormControl;
   }
 
   handleUserData(): void {

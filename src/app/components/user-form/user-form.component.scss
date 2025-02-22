@@ -16,6 +16,9 @@
     .mat-form-field-wrapper {
       width: 100%;
     }
+    &.date {
+      display: block;
+    }
   }
   .footer {
     display: flex;

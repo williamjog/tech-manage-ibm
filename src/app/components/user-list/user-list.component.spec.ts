@@ -83,31 +83,31 @@ describe('UserListComponent', () => {
     });
   
     it('should return the correct age when birthday has already passed this year', () => {
-      const birthDate = new Date(new Date().getFullYear() - 25, 0, 1); // 25 anos completos
+      const birthDate = new Date(new Date().getFullYear() - 25, 0, 1);
       expect(component.getUserAge(birthDate)).toBe(25);
     });
   
     it('should return the correct age when birthday is today', () => {
       const today = new Date();
-      const birthDate = new Date(today.getFullYear() - 30, today.getMonth(), today.getDate()); // 30 anos completos
+      const birthDate = new Date(today.getFullYear() - 30, today.getMonth(), today.getDate());
       expect(component.getUserAge(birthDate)).toBe(30);
     });
   
     it('should return the correct age when birthday is yet to come this year', () => {
       const today = new Date();
-      const birthDate = new Date(today.getFullYear() - 40, today.getMonth() + 1, today.getDate()); // Ainda não fez 40 anos
+      const birthDate = new Date(today.getFullYear() - 40, today.getMonth() + 1, today.getDate());
       expect(component.getUserAge(birthDate)).toBe(39);
     });
   
     it('should return the correct age when birthday is later in the same month', () => {
       const today = new Date();
-      const birthDate = new Date(today.getFullYear() - 20, today.getMonth(), today.getDate() + 5); // 19 anos pois falta 5 dias
+      const birthDate = new Date(today.getFullYear() - 20, today.getMonth(), today.getDate() + 5);
       expect(component.getUserAge(birthDate)).toBe(19);
     });
   
     it('should return the correct age when birthday is tomorrow', () => {
       const today = new Date();
-      const birthDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate() + 1); // 17 anos pois ainda não fez 18
+      const birthDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate() + 1);
       expect(component.getUserAge(birthDate)).toBe(17);
     });
   

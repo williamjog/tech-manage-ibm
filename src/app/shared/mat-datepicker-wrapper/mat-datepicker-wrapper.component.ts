@@ -1,5 +1,5 @@
-import { Component, forwardRef, OnInit } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
@@ -16,6 +16,8 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 })
 export class MatDatepickerWrapperComponent implements OnInit, ControlValueAccessor {
 
+  @Input() control: FormControl;
+
   value: string | null = null;
 
   onChange: (value: any) => void = () => {};
@@ -26,6 +28,9 @@ export class MatDatepickerWrapperComponent implements OnInit, ControlValueAccess
   ngOnInit(): void {}
 
   onDateChange(event: MatDatepickerInputEvent<any>): void {
+    this.control.setValue(event.value);
+    this.control.markAsTouched();
+    this.control.updateValueAndValidity();
     this.value = event.value;
     this.onChange(this.value);
   }
