@@ -13,8 +13,6 @@ import { SharedModule } from './shared/shared.module';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 
-
-// Registrando o locale
 registerLocaleData(localePt);
 
 @NgModule({

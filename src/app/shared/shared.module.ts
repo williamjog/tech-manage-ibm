@@ -9,11 +9,15 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerWrapperComponent } from './mat-datepicker-wrapper/mat-datepicker-wrapper.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    MatDatepickerWrapperComponent
+  ],
   imports: [
     CommonModule,
     MatDatepickerModule,
@@ -25,6 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     MatButtonModule,
     MatCardModule,
+    ReactiveFormsModule
   ],
   exports: [
     MatDatepickerModule,
@@ -36,6 +41,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     MatButtonModule,
     MatCardModule,
+    ReactiveFormsModule,
+    MatDatepickerWrapperComponent
   ]
 })
 export class SharedModule { }

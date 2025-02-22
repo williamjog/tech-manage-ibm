@@ -30,6 +30,7 @@ export class UserFormComponent implements OnInit {
       birthDate: ['', [Validators.required]],
       role: ['', Validators.required]
     });
+    console.log(this.data)
     if (this.data) {
       this.userForm.get('id')?.setValue(this.data.id);
       this.userForm.get('name')?.setValue(this.data.name);
@@ -43,7 +44,6 @@ export class UserFormComponent implements OnInit {
   }
 
   handleUserData(): void {
-    if (!this.userForm.valid) return;
     const action = this.data ? this.userService.updateUser : this.userService.addUser;
     action.call(this.userService, this.userForm.value);
     this.userForm.reset();
