@@ -4,9 +4,9 @@ TechManage é uma aplicação Angular para gerenciamento de usuários, permitind
 
 📦 Tecnologias Utilizadas
 
-(*) Angular (Framework principal)
+* Angular (Framework principal)
 
-(*) Angular Material (Componentes UI)
+* Angular Material (Componentes UI)
 
 (*) RxJS (Gerenciamento de estado com Observables)
 
@@ -42,7 +42,7 @@ techmanage/
 
 1️⃣ Instale as dependências
 
-(`) npx npm install (`)
+` npx npm install `
 
 2️⃣ Inicie o servidor de desenvolvimento
 
