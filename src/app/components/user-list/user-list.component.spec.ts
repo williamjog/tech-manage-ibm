@@ -131,7 +131,7 @@ describe('UserListComponent', () => {
       const dialogConfig = matDialogMock.open.calls.mostRecent().args[1];
       expect(dialogConfig.data).toEqual(user);
       expect(dialogConfig.width).toBe('300px');
-      expect(dialogConfig.height).toBe('85%');
+      expect(dialogConfig.maxHeight).toBe('85%');
       expect(dialogConfig.autoFocus).toBeFalse();
     });
   });
