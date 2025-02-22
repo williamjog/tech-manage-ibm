@@ -1,27 +1,43 @@
-# TesteIbm
+🚀 TechManage - Gerenciamento de Usuários
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+TechManage é uma aplicação Angular para gerenciamento de usuários, permitindo adicionar, editar, listar e remover usuários utilizando um service que simula chamadas ao backend com um array local.
 
-## Development server
+📦 Tecnologias Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Angular (Framework principal)
 
-## Code scaffolding
+* Angular Material (Componentes UI)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* RxJS (Gerenciamento de estado com Observables)
 
-## Build
+* TypeScript (Linguagem principal)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+🎯 Funcionalidades
 
-## Running unit tests
+✅ Listagem de usuários <br>
+✅ Adicionar novos usuários <br>
+✅ Editar usuários existentes <br>
+✅ Remover usuários <br>
+✅ Simulação de backend com um service local <br>
+✅ Uso de async pipe para manipulação de Observables <br>
+✅ Interface responsiva com Angular Material <br>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+🚀 Como Executar o Projeto
 
-## Running end-to-end tests
+1️⃣ Instale as dependências
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+` npx npm install `
 
-## Further help
+2️⃣ Inicie o servidor de desenvolvimento
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+` npx ng serve `
+
+Acesse no navegador: http://localhost:4200
+
+🎨 UI e Design
+
+* O projeto utiliza Angular Material para uma interface moderna e responsiva.
+
+📜 Licença
+
+* Este projeto está sob a licença MIT. Você pode usá-lo e modificá-lo livremente.
