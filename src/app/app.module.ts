@@ -7,7 +7,6 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDatepickerWrapperComponent } from './shared/mat-datepicker-wrapper/mat-datepicker-wrapper.component';
 import { SharedModule } from './shared/shared.module';
 
 import { registerLocaleData } from '@angular/common';
@@ -20,7 +19,6 @@ registerLocaleData(localePt);
     AppComponent,
     UserFormComponent,
     UserListComponent,
-    MatDatepickerWrapperComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +31,6 @@ registerLocaleData(localePt);
     { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],
   exports: [
-    MatDatepickerWrapperComponent,
     UserFormComponent,
     UserListComponent
   ],
