@@ -66,10 +66,11 @@ describe('UserListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should assign users$ from userService.getUsers on init', () => {
+  it('should assign users$ from userService.getUsers on init', (done) => {
     expect(userServiceMock.getUsers).toHaveBeenCalled();
     component.users$.subscribe(result => {
       expect(result).toEqual(users);
+      done();
     });
   });
 
