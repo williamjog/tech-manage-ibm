@@ -16,13 +16,27 @@ export class UserService {
     return this.usersSubject.asObservable();
   }
 
-  addUser(user: Omit<User, 'id'>): void {
-    const newUser: User = { id: this.generateId(), ...user };
-    this.users.push(newUser);
+  addUser(user: User): void {
+    this.users.push(user);
     this.usersSubject.next([...this.users]);
   }
 
-  private generateId(): number {
-    return this.users.length ? Math.max(...this.users.map(u => u.id)) + 1 : 1;
+  updateUser(updatedUser: User): void {
+    const index = this.users.findIndex(u => u.id === updatedUser.id);
+    if (index !== -1) {
+      this.users[index] = { ...updatedUser };
+      this.usersSubject.next([...this.users]);
+    }
   }
+
+  deleteUser(deletedUser: User): void {
+    this.users = this.users.filter(user => user.id !== deletedUser.id);
+    this.usersSubject.next([...this.users]);
+  }
+
+  generateId(): number {
+    const maxId = this.users.length > 0 ? Math.max(...this.users.map(u => u.id)) : 0;
+    return maxId + 1;
+  }
+
 }

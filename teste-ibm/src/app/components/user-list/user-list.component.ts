@@ -1,7 +1,9 @@
+import { MatDialog } from '@angular/material/dialog';
 import { User } from './../../../interfaces/user.interface';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UserFormComponent } from '../user-form/user-form.component';
 
 @Component({
   selector: 'app-user-list',
@@ -13,7 +15,8 @@ export class UserListComponent implements OnInit {
   users$: Observable<User[]>;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +34,20 @@ export class UserListComponent implements OnInit {
       }
       return age;
     }
-    console.error('A data de nascimento está inválida');
+    console.error('A data de nascimento está inválida!');
+  }
+
+  updateUser(user: User): void {
+    this.dialog.open(UserFormComponent, {
+      width: '80%',
+      height: '85%',
+      autoFocus: false,
+      data: user
+    });
+  }
+
+  deleteUser(user: User): void {
+    this.userService.deleteUser(user);
   }
 
 }

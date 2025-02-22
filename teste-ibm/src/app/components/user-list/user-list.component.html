@@ -6,10 +6,24 @@
   <mat-card-content>
     <p> Email: {{ user?.email }} </p>
     <p> Telefone: {{ user?.phone }} </p>
-    <p> Data de Nascimento: {{ user?.birthDate }} - {{ this.getUserAge(user?.birthDate) }} anos </p>
+    <ng-container>Data de Nascimento: {{ user?.birthDate | date: 'dd' }}/</ng-container>
+    <ng-container>{{ user?.birthDate | date: 'MM' }}/</ng-container>
+    <ng-container>{{ user?.birthDate | date: 'yyyy' }}</ng-container> -
+    {{ this.getUserAge(user?.birthDate) }} anos
   </mat-card-content>
   <mat-card-actions class="actions">
-    <button mat-raised-button color="primary">EDITAR</button>
-    <button mat-raised-button color="warn">APAGAR</button>
+    <button mat-raised-button color="primary"
+    (click)="updateUser(user)">
+      EDITAR
+    </button>
+    <button mat-raised-button color="warn"
+    (click)="deleteUser(user)">
+      APAGAR
+    </button>
   </mat-card-actions>
 </mat-card>
+
+<section *ngIf="(users$ | async)?.length === 0" class="warning">
+  <p>Não há usuários cadastrados até o momento!</p>
+  <p>Cadastre um clicando no botão acima.</p>
+</section>

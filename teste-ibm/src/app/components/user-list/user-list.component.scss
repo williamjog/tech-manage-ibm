@@ -2,12 +2,20 @@
 @import '../../../variables/mixins.scss';
 
 .card {
+  margin: 10px;
   .actions {
     display: flex;
     padding-left: 7px;
     gap: 1rem;
     justify-content: flex-start;
   }
+}
+
+.warning {
+  @include text-font-inter;
+  margin-top: 5px;
+  font-size: 22px;
+  text-align: center;
 }
 
 @media (max-width: 400px) {

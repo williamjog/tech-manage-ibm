@@ -7,19 +7,11 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatDatepickerWrapperComponent } from './components/mat-datepicker-wrapper/mat-datepicker-wrapper.component';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerWrapperComponent } from './shared/mat-datepicker-wrapper/mat-datepicker-wrapper.component';
+import { SharedModule } from './shared/shared.module';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { MatButtonModule } from '@angular/material/button';
 
 
 // Registrando o locale
@@ -37,18 +29,10 @@ registerLocaleData(localePt);
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatDialogModule,
-    MatNativeDateModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatCardModule,
+    SharedModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'pt-BR' } // Definindo a linguagem padrão
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],
   exports: [
     MatDatepickerWrapperComponent,

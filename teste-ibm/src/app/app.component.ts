@@ -19,6 +19,6 @@ export class AppComponent {
       width: '80%',
       height: '85%',
       autoFocus: false,
-    })
+    });
   }
 }
