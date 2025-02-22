@@ -11,7 +11,7 @@ import { SharedModule } from './shared/shared.module';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { CustomDateAdapter } from './validators/date-adapter';
+import { CustomDateAdapter } from './utils/date-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 
 registerLocaleData(localePt);

@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user.service';
-import { phoneValidator } from 'src/app/validators/phone-validator';
+import { phoneValidator } from 'src/app/utils/phone-validator';
 import { User } from 'src/interfaces/user.interface';
 
 @Component({

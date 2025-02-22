@@ -103,7 +103,7 @@ describe('UserListComponent', () => {
       expect(matDialogMock.open).toHaveBeenCalled();
       const dialogConfig = matDialogMock.open.calls.mostRecent().args[1];
       expect(dialogConfig.data).toEqual(user);
-      expect(dialogConfig.width).toBe('80%');
+      expect(dialogConfig.width).toBe('300px');
       expect(dialogConfig.height).toBe('85%');
       expect(dialogConfig.autoFocus).toBeFalse();
     });
