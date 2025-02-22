@@ -30,7 +30,6 @@ export class UserFormComponent implements OnInit {
       birthDate: ['', [Validators.required]],
       role: ['', Validators.required]
     });
-    console.log(this.data)
     if (this.data) {
       this.userForm.get('id')?.setValue(this.data.id);
       this.userForm.get('name')?.setValue(this.data.name);
