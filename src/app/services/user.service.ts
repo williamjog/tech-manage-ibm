@@ -22,7 +22,7 @@ export class UserService {
   }
 
   updateUser(updatedUser: User): void {
-    const index = this.users.findIndex(u => u.id === updatedUser.id);
+    const index = this.users.findIndex(user => user.id === updatedUser.id);
     if (index !== -1) {
       this.users[index] = { ...updatedUser };
       this.usersSubject.next([...this.users]);
