@@ -35,7 +35,7 @@ export class UserService {
   }
 
   generateId(): number {
-    const maxId = this.users.length > 0 ? Math.max(...this.users.map(u => u.id)) : 0;
+    const maxId = this.users.length > 0 ? Math.max(...this.users.map(user => user.id)) : 0;
     return maxId + 1;
   }
 

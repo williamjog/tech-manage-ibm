@@ -16,7 +16,7 @@ export class AppComponent {
 
   openUserModal(): void {
     this.dialog.open(UserFormComponent, {
-      width: '50%',
+      width: '300px',
       height: '85%',
       autoFocus: false,
     });
