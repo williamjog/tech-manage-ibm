@@ -30,7 +30,7 @@ TechManage é uma aplicação Angular para gerenciamento de usuários, permitind
 
 2️⃣ Inicie o servidor de desenvolvimento
 
-` npx ng serve `
+` ng serve `
 
 3️⃣ Para averiguar a cobertura de testes unitários
 
