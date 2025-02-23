@@ -3,9 +3,6 @@
 
 .card {
   margin: 10px;
-  .card {
-    width: 270px
-  }
   .actions {
     display: flex;
     padding-left: 7px;
@@ -29,6 +26,6 @@
 
 @media (min-width: 401px) {
   .card {
-    width: 270px
+    width: 310px;
   }
 }
