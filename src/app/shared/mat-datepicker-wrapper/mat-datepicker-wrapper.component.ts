@@ -17,6 +17,7 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 export class MatDatepickerWrapperComponent implements OnInit, ControlValueAccessor {
 
   @Input() control: FormControl;
+  @Input() label: string;
 
   value: string | null = null;
 
