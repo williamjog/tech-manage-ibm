@@ -40,6 +40,12 @@
     </mat-error>
   </mat-form-field>
 
+  <app-mat-datepicker-wrapper
+    [control]="getBirthDateControl()"
+    formControlName="birthDate"
+    class="field date">
+  </app-mat-datepicker-wrapper>
+
   <mat-form-field appearance="fill" class="field" floatLabel="always" hideRequiredMarker>
     <mat-label>Cargo</mat-label>
     <mat-select formControlName="role" disableOptionCentering>
@@ -51,12 +57,6 @@
       O cargo é obrigatório!
     </mat-error>
   </mat-form-field>
-
-  <app-mat-datepicker-wrapper
-    [control]="getBirthDateControl()"
-    formControlName="birthDate"
-    class="field date">
-  </app-mat-datepicker-wrapper>
 
   <footer class="footer">
       <button
