@@ -1,4 +1,4 @@
-import { Component, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserFormComponent } from './components/user-form/user-form.component';
 
@@ -14,12 +14,10 @@ export class AppComponent {
 
   constructor(
     private dialog: MatDialog,
-    private renderer: Renderer2
   ) {}
 
   ngOnInit(): void {
     this.currentYear = new Date().getFullYear();
-    this.renderer.removeAttribute(document.querySelector('app-root'), 'aria-hidden');
   }
 
   openUserModal(): void {
