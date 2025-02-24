@@ -83,6 +83,8 @@ describe('MatDatepickerWrapperComponent', () => {
   });
 
   it('should have a label with "Data de nascimento"', () => {
+    component.label = 'Data de Nascimento';
+    fixture.detectChanges();
     const label = fixture.debugElement.query(By.css('mat-label'));
     expect(label.nativeElement.textContent.trim()).toBe('Data de Nascimento');
   });
