@@ -82,7 +82,7 @@ describe('MatDatepickerWrapperComponent', () => {
     expect(formField).toBeTruthy();
   });
 
-  it('should render a custom a input label', () => {
+  it('should render a custom input label', () => {
     component.label = 'Data de Nascimento';
     fixture.detectChanges();
     const label = fixture.debugElement.query(By.css('mat-label'));
