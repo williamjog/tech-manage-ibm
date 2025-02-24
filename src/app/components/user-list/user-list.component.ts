@@ -39,7 +39,7 @@ export class UserListComponent implements OnInit {
 
   updateUser(user: User): void {
     this.dialog.open(UserFormComponent, {
-      width: '300px',
+      width: '320px',
       maxHeight: '85%',
       autoFocus: false,
       data: user
