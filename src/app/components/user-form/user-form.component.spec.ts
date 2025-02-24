@@ -10,7 +10,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { DebugElement } from '@angular/core';
 
 class MockUserService {
   generateId() {
@@ -31,7 +30,6 @@ describe('UserFormComponent', () => {
   let fixture: ComponentFixture<UserFormComponent>;
   let mockMatDialogRef: MatDialogRef<UserFormComponent>;
   let mockData: any;
-  let el: DebugElement;
 
   beforeEach(() => {
     mockData = {
@@ -68,7 +66,6 @@ describe('UserFormComponent', () => {
 
     fixture = TestBed.createComponent(UserFormComponent);
     component = fixture.componentInstance;
-    el = fixture.debugElement;
     fixture.detectChanges();
   });
 
