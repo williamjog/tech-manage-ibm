@@ -12,6 +12,12 @@
     <mat-error *ngIf="userForm?.get('name')?.hasError('required')">
       O nome é obrigatório.
     </mat-error>
+    <mat-error *ngIf="!userForm?.get('name')?.hasError('required') && userForm?.get('name')?.hasError('minlength')">
+      O nome precisa conter no mínimo 5 caractéres.
+    </mat-error>
+    <mat-error *ngIf="!userForm?.get('name')?.hasError('required') && userForm?.get('name')?.hasError('maxlength')">
+      O nome precisa conter no máximo 100 caractéres.
+    </mat-error>
   </mat-form-field>
 
   <mat-form-field class="field" hideRequiredMarker floatLabel="always">
