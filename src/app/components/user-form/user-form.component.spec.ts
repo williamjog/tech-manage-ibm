@@ -137,7 +137,7 @@ describe('UserFormComponent', () => {
     component.userForm.get('email')?.setValue('john.doe@example.com');
     component.userForm.get('phone')?.setValue('(51) 99275-3945');
     component.userForm.get('birthDate')?.setValue('1990-01-01');
-    component.userForm.get('role')?.setValue('admin');
+    component.userForm.get('role')?.setValue('Administrador');
 
     expect(component.userForm.valid).toBeTrue();
   });
