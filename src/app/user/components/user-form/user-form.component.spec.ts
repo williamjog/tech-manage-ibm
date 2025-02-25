@@ -2,7 +2,7 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { UserFormComponent } from './user-form.component';
-import { UserService } from 'src/app/services/user.service';
+
 import { of } from 'rxjs';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { UserService } from '../../services/user.service';
 
 class MockUserService {
   generateId() {

@@ -1,6 +1,7 @@
+import { User } from 'src/interfaces/user.interface';
 import { TestBed } from '@angular/core/testing';
 import { UserService } from './user.service';
-import { User } from './../../interfaces/user.interface';
+
 
 describe('UserService', () => {
   let service: UserService;

@@ -2,10 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserListComponent } from './user-list.component';
 import { of } from 'rxjs';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { UserService } from '../../services/user.service';
+
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { User } from '../../../interfaces/user.interface';
+import { User } from '../../../../interfaces/user.interface';
 import { By } from '@angular/platform-browser';
+import { UserService } from '../../services/user.service';
 
 describe('UserListComponent', () => {
   let component: UserListComponent;

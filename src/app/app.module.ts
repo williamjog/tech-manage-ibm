@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserFormComponent } from './components/user-form/user-form.component';
-import { UserListComponent } from './components/user-list/user-list.component';
+import { UserFormComponent } from './user/components/user-form/user-form.component';
+import { UserListComponent } from './user/components/user-list/user-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomDateAdapter } from './utils/date.adapter';

@@ -1,9 +1,9 @@
 import { MatDialog } from '@angular/material/dialog';
-import { User } from './../../../interfaces/user.interface';
-import { UserService } from './../../services/user.service';
+import { User } from '../../../../interfaces/user.interface';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserFormComponent } from '../user-form/user-form.component';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-list',
