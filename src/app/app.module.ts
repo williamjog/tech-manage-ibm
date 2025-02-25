@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { UserModule } from './user/user.module';
 
 
 registerLocaleData(localePt);
@@ -32,14 +33,13 @@ export const MY_DATE_FORMATS = {
 @NgModule({
   declarations: [
     AppComponent,
-    UserFormComponent,
-    UserListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    UserModule,
     SharedModule
   ],
   providers: [
@@ -48,10 +48,7 @@ export const MY_DATE_FORMATS = {
     { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
     { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
   ],
-  exports: [
-    UserFormComponent,
-    UserListComponent
-  ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
