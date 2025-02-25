@@ -1,11 +1,19 @@
-<main class="wrapper">
+<main class="main">
 
   <section class="content">
     <header class="title">
-      <img class="logo" [src]="'./../assets/logo.png'">
+      <img 
+        class="logo"
+        [src]="'./../assets/logo.png'"
+        alt="Logo da Tech Manage, com o nome da empresa e símbolo"
+      >
     </header>
     <nav class="addUser">
-      <button mat-raised-button color="primary" (click)="openUserModal()">
+      <button 
+        mat-raised-button
+        color="primary"
+        (click)="openUserModal()"
+        aria-label="Cadastrar novo usuário">
         CADASTRAR USUÁRIO
       </button>
     </nav>
@@ -22,5 +30,3 @@
   </footer>
 
 </main>
-
-
