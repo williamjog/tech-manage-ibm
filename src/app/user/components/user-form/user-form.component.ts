@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { emailValidator } from 'src/app/utils/email.validator';
@@ -17,20 +17,23 @@ export class UserFormComponent implements OnInit {
   userForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder,
     private userService: UserService,
     private matDialogRef: MatDialogRef<UserFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User
   ) { }
 
   ngOnInit(): void {
-    this.userForm = this.fb.group({
-      id: [''],
-      name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
-      email: ['', [Validators.required, emailValidator()]],
-      phone: ['', [Validators.required, phoneValidator()]],
-      birthDate: ['', [Validators.required]],
-      role: ['', Validators.required]
+    this.userForm = new FormGroup({
+      id: new FormControl(''),
+      name: new FormControl('', [
+        Validators.required, 
+        Validators.minLength(5), 
+        Validators.maxLength(100)
+      ]),
+      email: new FormControl('', [Validators.required, emailValidator()]),
+      phone: new FormControl('', [Validators.required, phoneValidator()]),
+      birthDate: new FormControl(null, [Validators.required]),
+      role: new FormControl('', [Validators.required])
     });
     if (this.data) {
       this.userForm.get('id')?.setValue(this.data.id);
@@ -42,10 +45,6 @@ export class UserFormComponent implements OnInit {
     } else {
       this.userForm.get('id')?.setValue(this.userService.generateId());
     }
-  }
-
-  getBirthDateControl(): FormControl {
-    return this.userForm.get('birthDate') as FormControl;
   }
 
   handleUserData(): void {

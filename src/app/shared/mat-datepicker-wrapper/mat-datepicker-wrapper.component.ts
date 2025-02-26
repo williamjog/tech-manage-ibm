@@ -1,6 +1,12 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { Component, forwardRef, Input } from '@angular/core';
+import { 
+  ControlValueAccessor, 
+  NG_VALUE_ACCESSOR, 
+  NG_VALIDATORS, 
+  Validator, 
+  ValidationErrors, 
+  AbstractControl 
+} from '@angular/forms';
 
 @Component({
   selector: 'app-mat-datepicker-wrapper',
@@ -10,49 +16,52 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => MatDatepickerWrapperComponent),
-      multi: true,
+      multi: true
     },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => MatDatepickerWrapperComponent),
+      multi: true
+    }
   ]
 })
-export class MatDatepickerWrapperComponent implements OnInit, ControlValueAccessor {
-
-  @Input() control: FormControl;
+export class MatDatepickerWrapperComponent implements ControlValueAccessor, Validator {
   @Input() label: string;
+  @Input() control: AbstractControl<any, any> | null;
 
-  value: string | null = null;
+  value: string | null;
 
-  onChange: (value: any) => void = () => {};
+  onChange: (value: string | null) => void = () => {};
   onTouched: () => void = () => {};
 
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  onDateChange(event: MatDatepickerInputEvent<any>): void {
-    this.control?.setValue(event.value);
-    this.handleFocus();
-    this.value = event.value;
-    this.onChange(this.value);
+  writeValue(value: string | null): void {
+    this.value = value;
   }
 
-  handleFocus(): void {
-    this.control?.markAsTouched();
-    this.control?.updateValueAndValidity();
-  }
-
-  writeValue(value: any): void {
-    this.value = value || null;
-  }
-
-  registerOnChange(fn: (value: any) => void): void {
+  registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: () => void): void {
+  registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
 
-  setDisabledState?(isDisabled: boolean): void {
+  validate(control: AbstractControl): ValidationErrors | null {
+    return control.invalid ? { invalid: true } : null;
   }
 
+  onDateChange(event: any): void {
+    this.value = event.value;
+    this.writeValue(event.value);
+    this.onChange(this.value);
+    this.onTouched();
+  }
+
+  handleFocus(): void {
+    this.onTouched();
+  }
+
+  get errorState(): boolean | undefined {
+    return this.control?.invalid && this.control?.touched;
+  }
 }

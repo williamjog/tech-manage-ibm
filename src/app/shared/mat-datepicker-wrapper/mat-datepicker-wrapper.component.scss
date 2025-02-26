@@ -1,13 +1,16 @@
-::ng-deep.date-error {
-    font-size: 11px;
-    margin-top: -23px;
-    height: 20px;
-    .error-message {
-        animation: slideIn 0.3s ease forwards;
-        transform: translateY(-10px);
-        animation: slideIn 0.3s ease forwards
-    }
+@import '../../../variables/colors.scss';
 
+::ng-deep.date-error {
+  font-size: 11px;
+  margin-top: -27px;
+  height: 20px;
+  animation: slideIn 0.3s ease forwards;
+  transform: translateY(-10px);
+  animation: slideIn 0.3s ease forward;
+}
+
+::ng-deep mat-datepicker-toggle.invalid button {
+  color: $red !important;
 }
 
 @keyframes slideIn {
