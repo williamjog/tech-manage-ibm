@@ -54,7 +54,7 @@ export class MatDatepickerWrapperComponent implements ControlValueAccessor, Vali
     this.value = event.value;
     this.writeValue(event.value);
     this.onChange(this.value);
-    this.onTouched();
+    this.handleFocus();
   }
 
   handleFocus(): void {
