@@ -24,15 +24,23 @@ TechManage é uma aplicação Angular para gerenciamento de usuários, permitind
 
 🚀 Como Executar o Projeto
 
-1️⃣ Instale as dependências
+1️⃣ Clone o projeto
+
+` git clone https://github.com/williamjog/tech-manage-ibm.git `
+
+2️⃣ Acesse o diretório do repositório clonado
+
+` cd tech-manage-ibm `
+
+3️⃣ Instale as dependências
 
 ` npm install `
 
-2️⃣ Inicie o servidor de desenvolvimento
+4️⃣ Inicie o servidor de desenvolvimento
 
 ` ng serve `
 
-3️⃣ Para averiguar a cobertura de testes unitários
+5️⃣ Para averiguar a cobertura de testes unitários
 
 ` npm run testLocal `
 
